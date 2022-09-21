@@ -11,6 +11,36 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const verificaString = (a) => {
+  for (let index in a) {
+    if (typeof a[index] !== 'number') {
+      throw new Error();
+    }
+  }
+};
+
+const verificaVazio = (a) => {
+    if (a.length === 0) {
+      throw new Error();
+    }
+};
+
+const average = (a) => {
+  let soma = 0;
+  let media = 0;
+  let arredondado = 0;
+  try {
+    verificaString(a);
+    verificaVazio(a);
+    for (let index2 = 0; index2 < a.length; index2 += 1) {
+      soma += a[index2];
+      media = soma / a.length;
+      arredondado = parseInt(media.toFixed(0), 10);
+    }
+    return arredondado;
+  } catch (error) {
+    return undefined;
+  }
+};
 
 module.exports = average;
