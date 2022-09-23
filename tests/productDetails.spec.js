@@ -37,7 +37,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se productDetails é uma função.
     expect(typeof productDetails).toBe('function');
     // Teste se o retorno da função é um array.
-    expect(typeof execucao.length).toBe('number');
+    expect(Array.isArray(execucao)).toBe(true);
     // Teste se o array retornado pela função contém dois itens dentro.
     expect(execucao.length).toBe(2);
     // Teste se os dois itens dentro do array retornado pela função são objetos.
@@ -50,7 +50,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se os dois productIds terminam com 123.
     let idUm = execucao[0].details.productId;
     let idDois = execucao[1].details.productId;
-    expect(idUm.substr(-3)).toBe('123');
-    expect(idDois.substr(-3)).toBe('123');
+    expect(idUm.substring(idUm.length -3)).toBe('123');
+    expect(idDois.substring(idDois.length -3)).toBe('123');
   });
 });
